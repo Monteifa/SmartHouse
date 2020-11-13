@@ -1,4 +1,5 @@
 import { Entity, ObjectIdColumn, Column } from 'typeorm';
+import Room from './Room';
 
 @Entity()
 export default class House {
@@ -8,18 +9,6 @@ export default class House {
   @Column()
   name: string;
 
-  @Column()
-  rooms: [
-    {
-      name: string;
-      dimensions?: {
-        height?: number;
-        width?: number;
-        depth?: number;
-      };
-      devices?: [
-        { name: string; type: number | boolean; status: number | boolean }
-      ];
-    }
-  ];
+  @Column((type) => Room)
+  rooms: Room[];
 }
