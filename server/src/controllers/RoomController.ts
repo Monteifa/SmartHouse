@@ -1,6 +1,7 @@
+import House from '../models/House';
 import { Request, Response } from 'express';
 import { getMongoRepository } from 'typeorm';
-import House from '../models/House';
+import { findRoomIndex } from '../utils/findUtils';
 
 interface RoomRouteParams {
   name: string;
@@ -59,8 +60,7 @@ export default {
 
     let { rooms } = await housesRepository.findOneOrFail(parseInt(id));
 
-    let roomIndex = -1;
-    rooms.map((room, index) => room.name === roomName && (roomIndex = index));
+    const roomIndex = findRoomIndex(rooms, roomName);
 
     if (roomIndex >= 0) {
       rooms.splice(roomIndex, 1);

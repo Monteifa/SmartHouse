@@ -1,28 +1,11 @@
-import { Request, Response } from 'express';
-import Device from 'src/models/Device';
-import Room from 'src/models/Room';
-import { getMongoRepository } from 'typeorm';
 import House from '../models/House';
+import { Request, Response } from 'express';
+import { getMongoRepository } from 'typeorm';
+import { findRoomIndex, findDeviceIndex } from '../utils/findUtils';
 
 interface DeviceRouteParams {
   name: string;
   status: boolean;
-}
-
-function findRoomIndex(rooms: Room[], roomName: string): number | null {
-  let roomIndex: number | null;
-  rooms.map((room, index) => room.name === roomName && (roomIndex = index));
-
-  return roomIndex;
-}
-
-function findDeviceIndex(devices: Device[], deviceName: string): number | null {
-  let deviceIndex: number | null;
-  devices.map(
-    (device, index) => device.name === deviceName && (deviceIndex = index)
-  );
-
-  return deviceIndex;
 }
 
 export default {

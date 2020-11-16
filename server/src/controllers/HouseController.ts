@@ -1,6 +1,6 @@
+import House from '../models/House';
 import { Request, Response } from 'express';
 import { getMongoRepository } from 'typeorm';
-import House from '../models/House';
 
 export default {
   /**
