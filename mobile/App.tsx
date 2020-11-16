@@ -6,7 +6,7 @@ import Routes from './src/Routes/stack';
 export default function App() {
   return (
     <>
-      <StatusBar style='light' />
+      <StatusBar style='light' backgroundColor='#18161F' />
       <Routes />
     </>
   );

@@ -1,20 +1,16 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import {
-  RectButton,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
-import styles from './styles';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 import lp from '../../images/linkinpark.jpg';
 import ff from '../../images/foo.jpg';
 import ff2 from '../../images/foo2.jpg';
 import week from '../../images/week.jpg';
 import acdc from '../../images/acdc.jpg';
+
+import styles from './styles';
 
 const LineDivider = () => {
   return (
@@ -27,11 +23,6 @@ const LineDivider = () => {
 };
 
 const House = () => {
-  const { navigate } = useNavigation();
-
-  function next() {
-    navigate('Room');
-  }
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -203,11 +194,7 @@ const House = () => {
           color='#fff'
           style={styles.iconNext}
         />
-      </RectButton>
-
-      <RectButton onPress={next}>
-        <Text>GO</Text>
-      </RectButton> */}
+      </RectButton>*/}
     </ScrollView>
   );
 };
