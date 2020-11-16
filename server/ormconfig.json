@@ -4,11 +4,11 @@
   "database": "smarthouse",
   "synchronize": true,
   "logging": false,
-  "entities": ["src/models/*.ts"],
-  "migrations": ["src/migration/*.ts"],
+  "entities": ["./src/models/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
-    "entitiesDir": "src/models",
-    "migrationsDir": "src/migration"
+    "entitiesDir": "./src/models",
+    "migrationsDir": "./src/database/migrations"
   },
   "useNewUrlParser": true,
   "useUnifiedTopology": true
