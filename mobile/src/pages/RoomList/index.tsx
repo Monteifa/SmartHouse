@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
 import api from '../../services/api';
 import styles from './styles';
@@ -23,14 +23,14 @@ const RoomList = () => {
 
   let [rooms, setRooms] = useState<RoomProps[]>([]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     api.get('/houses/1').then(({ data }) => {
       rooms = data.rooms;
       rooms.push({ name: 'add', add: true });
 
       setRooms(rooms);
     });
-  }, [rooms]);
+  });
 
   function AddButton() {
     return (
