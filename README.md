@@ -22,10 +22,9 @@ cd mobile/
 npm i
 ```
 
-If on Windows running Android Emulator, connect your localhost with emulator locahost
+If on Windows running Android Emulator, link your localhost with emulator localhost
 ```
 adb reverse tcp:3333 tcp:3333
-
 ```
 Start the local server
 

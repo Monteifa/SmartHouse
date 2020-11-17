@@ -30,21 +30,13 @@ const styles = StyleSheet.create({
   },
 
   roomListContainer: {
-    flexDirection: 'row',
-    height: 1000,
-  },
-
-  roomListSide1: {
-    flex: 1,
-  },
-
-  roomListSide2: {
-    flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'center',
+    margin: 4,
+    padding: 20,
   },
 
   roomItem: {
-    width: 156,
+    width: 160,
     height: 150,
     backgroundColor: '#25282F',
     borderRadius: 12,
@@ -52,6 +44,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingTop: 16,
     paddingBottom: 16,
+    marginHorizontal: 16,
   },
 
   roomName: {
@@ -70,7 +63,7 @@ const styles = StyleSheet.create({
   },
 
   roomItemAdd: {
-    width: 156,
+    width: 160,
     height: 150,
     backgroundColor: 'transparent',
     borderRadius: 12,
@@ -79,6 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#25282F',
     borderWidth: 2,
+    marginHorizontal: 16,
   },
 
   circle: {
