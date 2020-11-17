@@ -21,36 +21,6 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontWeight: 'bold',
   },
-
-  notificationContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: 16,
-    paddingBottom: 24,
-  },
-
-  notificationItem: {
-    flexDirection: 'row',
-    height: 70,
-    backgroundColor: '#25282F',
-    borderRadius: 12,
-    marginBottom: 24,
-  },
-
-  divider: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  notificationText: {
-    color: '#fff',
-    marginLeft: 8,
-    fontSize: 16,
-    lineHeight: 22,
-  },
 });
 
 export default styles;

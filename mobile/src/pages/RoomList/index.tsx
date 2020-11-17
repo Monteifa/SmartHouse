@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
 import api from '../../services/api';

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
 import api from '../../services/api';
@@ -42,7 +41,7 @@ const DeviceList = () => {
     return (
       <TouchableOpacity
         style={styles.deviceItem}
-        onPress={handleNavigateToRoom}
+        onPress={() => handleNavigateToDevice()}
       >
         <MaterialIcons name='keyboard' size={32} color='#fff' />
 
@@ -59,8 +58,9 @@ const DeviceList = () => {
     );
   }
 
-  function handleNavigateToRoom() {
-    navigate('Room');
+  function handleNavigateToDevice() {
+    // navigate('Device');
+    console.log('aaaaaa');
   }
 
   return (
