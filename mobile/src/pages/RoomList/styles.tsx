@@ -77,15 +77,15 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#F96D41',
-    borderWidth: 0.3,
+    borderColor: '#25282F',
+    borderWidth: 2,
   },
 
   circle: {
     width: 48,
     height: 48,
     borderRadius: 50,
-    backgroundColor: '#F96D41',
+    backgroundColor: '#25282F',
     justifyContent: 'center',
     alignItems: 'center',
   },

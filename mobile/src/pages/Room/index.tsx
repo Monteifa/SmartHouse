@@ -13,27 +13,17 @@ const Room = () => {
   }
   return (
     <View style={styles.container}>
-      <View style={styles.deviceList}>
-        <View style={styles.deviceItem}>
-          <Feather name='tv' size={56} color='#FFF' />
-          <Text>Device</Text>
-        </View>
+      <Feather name='tv' size={56} color='#FFF' />
+      <Text>Device</Text>
 
-        <View style={styles.deviceItem}>
-          <MaterialIcons name='speaker' size={56} color='#fff' />
-          <Text>Device</Text>
-        </View>
+      <MaterialIcons name='speaker' size={56} color='#fff' />
+      <Text>Device</Text>
 
-        <View style={styles.deviceItem}>
-          <MaterialIcons name='lightbulb-outline' size={56} color='#fff' />
-          <Text>Device</Text>
-        </View>
+      <MaterialIcons name='lightbulb-outline' size={56} color='#fff' />
+      <Text>Device</Text>
 
-        <View style={styles.deviceItem}>
-          <Ionicons name='ios-thermometer' size={56} color='#fff' />
-          <Text>Device</Text>
-        </View>
-      </View>
+      <Ionicons name='ios-thermometer' size={56} color='#fff' />
+      <Text>Device</Text>
     </View>
   );
 };
