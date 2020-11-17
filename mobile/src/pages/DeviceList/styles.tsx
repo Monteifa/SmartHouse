@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
     paddingRight: 24,
     paddingBottom: 24,
     paddingTop: 40,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 
   deviceText: {
@@ -22,21 +20,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  description: {
+    color: '#fff',
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: 'bold',
+    marginTop: 8,
+  },
+
   deviceList: {
     paddingLeft: 16,
     paddingBottom: 24,
     paddingRight: 16,
-    paddingTop: 16,
   },
 
   deviceListContainer: {
     alignItems: 'center',
-    margin: 4,
     padding: 20,
   },
 
   deviceItem: {
-    width: 160,
+    width: 140,
     height: 150,
     backgroundColor: '#25282F',
     borderRadius: 12,

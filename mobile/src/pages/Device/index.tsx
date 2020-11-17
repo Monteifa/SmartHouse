@@ -4,11 +4,7 @@ import { Text, View } from 'react-native';
 import styles from './styles';
 
 const Device = () => {
-  return (
-    <View>
-      <Text>Olá</Text>
-    </View>
-  );
+  return <View style={styles.container}></View>;
 };
 
 export default Device;

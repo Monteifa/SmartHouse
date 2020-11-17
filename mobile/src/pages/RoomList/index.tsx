@@ -31,7 +31,7 @@ const RoomList = () => {
     });
   });
 
-  function AddButton() {
+  const AddButton = () => {
     return (
       <TouchableOpacity style={styles.roomItemAdd}>
         <View style={styles.circle}>
@@ -39,21 +39,7 @@ const RoomList = () => {
         </View>
       </TouchableOpacity>
     );
-  }
-
-  function RoomItem({ name, devices }: RoomProps) {
-    return (
-      <TouchableOpacity style={styles.roomItem} onPress={handleNavigateToRoom}>
-        <MaterialIcons name='weekend' size={32} color='#fff' />
-
-        <Text style={styles.roomName}>{name}</Text>
-        <Text style={styles.roomDesc}>
-          {devices ? devices.length : 0}{' '}
-          {devices ? (devices.length > 1 ? 'devices' : 'device ') : 'device'}
-        </Text>
-      </TouchableOpacity>
-    );
-  }
+  };
 
   function handleNavigateToRoom() {
     navigate('Room');
@@ -73,9 +59,38 @@ const RoomList = () => {
           keyExtractor={(item) => item.name}
           renderItem={({ item }) =>
             item.add ? (
-              <AddButton />
+              <TouchableOpacity style={styles.roomItemAdd}>
+                <View style={styles.circle}>
+                  <MaterialIcons name='add' size={32} color='#fff' />
+                </View>
+              </TouchableOpacity>
             ) : (
-              <RoomItem name={item.name} devices={item.devices} />
+              <TouchableOpacity
+                style={styles.roomItem}
+                onPress={handleNavigateToRoom}
+              >
+                <View style={styles.roomItemHeader}>
+                  <MaterialIcons name='weekend' size={32} color='#fff' />
+                  <TouchableOpacity>
+                    <MaterialIcons
+                      name='more-vert'
+                      size={24}
+                      color='#F96D41'
+                      style={styles.Icon}
+                    />
+                  </TouchableOpacity>
+                </View>
+
+                <Text style={styles.roomName}>{item.name}</Text>
+                <Text style={styles.roomDesc}>
+                  {item.devices ? item.devices.length : 0}{' '}
+                  {item.devices
+                    ? item.devices.length > 1
+                      ? 'devices'
+                      : 'device '
+                    : 'device'}
+                </Text>
+              </TouchableOpacity>
             )
           }
           showsVerticalScrollIndicator={false}

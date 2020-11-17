@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 
   roomItem: {
-    width: 160,
+    width: 140,
     height: 150,
     backgroundColor: '#25282F',
     borderRadius: 12,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
 
   roomItemAdd: {
-    width: 160,
+    width: 140,
     height: 150,
     backgroundColor: 'transparent',
     borderRadius: 12,
@@ -82,6 +82,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#25282F',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  roomItemHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  Icon: {
+    marginRight: 8,
+    marginTop: 2,
   },
 });
 

@@ -37,36 +37,15 @@ const DeviceList = () => {
     });
   });
 
-  function DeviceItem({ name, status, icon }: DeviceProps) {
-    return (
-      <TouchableOpacity
-        style={styles.deviceItem}
-        onPress={() => handleNavigateToDevice()}
-      >
-        <MaterialIcons name='keyboard' size={32} color='#fff' />
-
-        <Text style={styles.deviceName}>{name}</Text>
-        <Text
-          style={[
-            styles.deviceStatus,
-            status ? { color: '#52CCA9' } : { color: '#932025' },
-          ]}
-        >
-          {status ? 'On' : 'Off'}
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  function handleNavigateToDevice() {
-    // navigate('Device');
-    console.log('aaaaaa');
+  function handleNavigateToDevice(name: string, status: boolean) {
+    navigate('Device');
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.deviceHeader}>
         <Text style={styles.deviceText}>Devices</Text>
+        <Text style={styles.description}>A list of all of your devices</Text>
       </View>
 
       <View style={styles.deviceList}>
@@ -76,11 +55,22 @@ const DeviceList = () => {
           data={devices}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) => (
-            <DeviceItem
-              name={item.name}
-              status={item.status}
-              icon={item.icon}
-            />
+            <TouchableOpacity
+              style={styles.deviceItem}
+              onPress={() => handleNavigateToDevice(item.name, item.status)}
+            >
+              <MaterialIcons name='keyboard' size={32} color='#fff' />
+
+              <Text style={styles.deviceName}>{item.name}</Text>
+              <Text
+                style={[
+                  styles.deviceStatus,
+                  item.status ? { color: '#52CCA9' } : { color: '#932025' },
+                ]}
+              >
+                {item.status ? 'On' : 'Off'}
+              </Text>
+            </TouchableOpacity>
           )}
           showsVerticalScrollIndicator={false}
         />
