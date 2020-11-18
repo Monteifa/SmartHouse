@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import Header from '../../components/Header';
-import AddButton from '../../components/AddButton';
+import AddButton from '../../components/AddDeviceButton';
 import DeviceButton, { DeviceProps } from '../../components/DeviceButton';
 import api from '../../services/api';
 import styles from './styles';
@@ -26,7 +26,7 @@ const Room = () => {
       deviceList.push({ name: 'add', status: false });
       setDevices(deviceList);
     });
-  }, []);
+  }, [devices]);
 
   return (
     <View style={styles.container}>
@@ -40,7 +40,7 @@ const Room = () => {
           keyExtractor={(item) => item.name}
           renderItem={({ item }) =>
             item.name === 'add' ? (
-              <AddButton />
+              <AddButton roomName={name} />
             ) : (
               <DeviceButton
                 name={item.name}

@@ -10,9 +10,10 @@ export interface RoomProps {
   name: string;
   devices?: DeviceProps[];
   add?: boolean;
+  icon: string;
 }
 
-const RoomButton: React.FC<RoomProps> = ({ name, devices }) => {
+const RoomButton: React.FC<RoomProps> = ({ name, devices, icon }) => {
   const { navigate } = useNavigation();
 
   function handleNavigateToRoom(name: string) {
@@ -49,7 +50,11 @@ const RoomButton: React.FC<RoomProps> = ({ name, devices }) => {
       onPress={() => handleNavigateToRoom(name)}
     >
       <View style={styles.roomItemHeader}>
-        <MaterialIcons name='weekend' size={32} color='#fff' />
+        {name === 'Bedroom' ? (
+          <Ionicons name='ios-bed' size={32} color='#fff' />
+        ) : (
+          <MaterialIcons name={icon} size={32} color='#fff' />
+        )}
         <TouchableOpacity>
           <Ionicons
             name='ios-trash'

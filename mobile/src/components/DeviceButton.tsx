@@ -11,7 +11,12 @@ export interface DeviceProps {
   roomName?: string;
 }
 
-const DeviceButton: React.FC<DeviceProps> = ({ name, status, roomName }) => {
+const DeviceButton: React.FC<DeviceProps> = ({
+  name,
+  status,
+  icon,
+  roomName,
+}) => {
   const { navigate, goBack } = useNavigation();
 
   function handleNavigateToDevice(name: string, status: boolean) {
@@ -49,7 +54,8 @@ const DeviceButton: React.FC<DeviceProps> = ({ name, status, roomName }) => {
       onPress={() => handleNavigateToDevice(name, status)}
     >
       <View style={styles.roomItemHeader}>
-        <MaterialIcons name='keyboard' size={32} color='#fff' />
+        {icon ? <MaterialIcons name={icon} size={32} color='#fff' /> : null}
+
         {roomName && (
           <Ionicons
             name='ios-trash'
