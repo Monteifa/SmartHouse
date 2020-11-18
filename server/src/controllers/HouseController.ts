@@ -31,17 +31,7 @@ export default {
     const house = new House();
 
     house._id = 1;
-    house.name = 'Casa Do Fabinho';
-    house.rooms = [
-      {
-        name: 'Sala',
-        dimensions: {
-          width: 5,
-          height: 3,
-          depth: 6,
-        },
-      },
-    ];
+    house.name = 'Casa Cinside';
 
     await housesRepository.save(house);
 
