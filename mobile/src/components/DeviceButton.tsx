@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+
 import api from '../services/api';
 
 export interface DeviceProps {
@@ -19,8 +20,8 @@ const DeviceButton: React.FC<DeviceProps> = ({
 }) => {
   const { navigate, goBack } = useNavigation();
 
-  function handleNavigateToDevice(name: string, status: boolean) {
-    navigate('Device');
+  function handleNavigateToDevice() {
+    navigate('Device', { name, status, roomName });
   }
 
   function confirmDeleteDevice(roomName: string, device: string) {
@@ -51,7 +52,7 @@ const DeviceButton: React.FC<DeviceProps> = ({
   return (
     <TouchableOpacity
       style={styles.deviceItem}
-      onPress={() => handleNavigateToDevice(name, status)}
+      onPress={handleNavigateToDevice}
     >
       <View style={styles.roomItemHeader}>
         {icon ? <MaterialIcons name={icon} size={32} color='#fff' /> : null}

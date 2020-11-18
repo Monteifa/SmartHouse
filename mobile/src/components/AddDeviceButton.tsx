@@ -97,6 +97,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
                   trackColor={{ false: '#ccc', true: '#39CC83' }}
                   value={status}
                   onValueChange={setStatus}
+                  style={{ width: 200 }}
                 />
               </View>
 
@@ -184,13 +185,14 @@ const styles = StyleSheet.create({
   },
 
   switchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     marginTop: 16,
+    flexDirection: 'row',
   },
 
-  switchText: {},
+  switchText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 
   buttonContainer: {
     flexDirection: 'row',
