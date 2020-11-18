@@ -57,7 +57,7 @@ const House = () => {
 
       {/* Favorite Devices */}
       <View style={styles.favoriteHeader}>
-        <Text style={styles.favoriteText}>Favorites Devices</Text>
+        <Text style={styles.favoriteText}>Favorites Devices (Beta)</Text>
 
         <TouchableOpacity onPress={() => {}} style={{ marginTop: 3 }}>
           <MaterialIcons name='edit' size={24} color='#F96D41' />
@@ -88,7 +88,7 @@ const House = () => {
       {/* Recent Played */}
 
       <View style={styles.recentHeader}>
-        <Text style={styles.recentText}>Recent Songs Played</Text>
+        <Text style={styles.recentText}>Recent Songs Played (Beta)</Text>
       </View>
       <View style={styles.recentScroller}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>

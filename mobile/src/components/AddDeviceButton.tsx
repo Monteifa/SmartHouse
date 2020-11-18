@@ -37,7 +37,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
         break;
 
       case 'Lights':
-        icon = 'emoji-objects';
+        icon = 'lightbulb-outline';
         break;
 
       case 'Video Game':
