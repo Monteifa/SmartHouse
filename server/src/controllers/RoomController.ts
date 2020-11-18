@@ -5,11 +5,6 @@ import { findRoomIndex } from '../utils/findUtils';
 
 interface RoomRouteParams {
   name: string;
-  dimensions: {
-    depth: number;
-    width: number;
-    height: number;
-  };
 }
 
 export default {
@@ -20,20 +15,11 @@ export default {
     const housesRepository = getMongoRepository(House);
     const { id } = request.params;
 
-    const { name, dimensions }: RoomRouteParams = request.body;
-
-    const { depth, height, width } = dimensions;
+    const { name }: RoomRouteParams = request.body;
 
     let { rooms } = await housesRepository.findOneOrFail(parseInt(id));
 
-    const newRoom = {
-      name,
-      dimensions: {
-        depth,
-        height,
-        width,
-      },
-    };
+    const newRoom = { name };
 
     rooms ? rooms.push(newRoom) : (rooms = [newRoom]);
 

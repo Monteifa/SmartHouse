@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { DeviceProps } from './DeviceButton';
+import { Alert } from 'react-native';
+import api from '../services/api';
 
 export interface RoomProps {
   name: string;
@@ -17,6 +19,30 @@ const RoomButton: React.FC<RoomProps> = ({ name, devices }) => {
     navigate('Room', { name });
   }
 
+  function confirmDeleteRoom(room: string) {
+    Alert.alert(
+      `Are you sure you want to delete ${room}?`,
+      'this action cannot be undone!',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {
+          text: 'Yes, delete it',
+          style: 'destructive',
+          onPress: () => deleteRoom(room),
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+
+  async function deleteRoom(room: string) {
+    await api.delete(`/houses/1/rooms/${room}`);
+    Alert.alert(`${room} deleted!`);
+  }
+
   return (
     <TouchableOpacity
       style={styles.roomItem}
@@ -25,11 +51,12 @@ const RoomButton: React.FC<RoomProps> = ({ name, devices }) => {
       <View style={styles.roomItemHeader}>
         <MaterialIcons name='weekend' size={32} color='#fff' />
         <TouchableOpacity>
-          <MaterialIcons
-            name='more-vert'
+          <Ionicons
+            name='ios-trash'
             size={24}
             color='#F96D41'
             style={styles.Icon}
+            onPress={() => confirmDeleteRoom(name)}
           />
         </TouchableOpacity>
       </View>
@@ -79,7 +106,8 @@ const styles = StyleSheet.create({
   },
 
   Icon: {
-    marginRight: 8,
+    marginRight: 12,
     marginTop: 2,
+    opacity: 0.6,
   },
 });

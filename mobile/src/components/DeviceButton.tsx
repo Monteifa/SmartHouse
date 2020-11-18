@@ -1,19 +1,46 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import api from '../services/api';
 
 export interface DeviceProps {
   name: string;
   status: boolean;
   icon?: string;
+  roomName?: string;
 }
 
-const DeviceButton: React.FC<DeviceProps> = ({ name, status }) => {
-  const { navigate } = useNavigation();
+const DeviceButton: React.FC<DeviceProps> = ({ name, status, roomName }) => {
+  const { navigate, goBack } = useNavigation();
 
   function handleNavigateToDevice(name: string, status: boolean) {
     navigate('Device');
+  }
+
+  function confirmDeleteDevice(roomName: string, device: string) {
+    Alert.alert(
+      `Are you sure you want to delete ${device}?`,
+      'this action cannot be undone!',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {
+          text: 'Yes, delete it',
+          style: 'destructive',
+          onPress: () => deleteDevice(roomName, device),
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+
+  async function deleteDevice(room: string, device: string) {
+    await api.delete(`/houses/1/rooms/${room}/devices/${device}`);
+    Alert.alert(`${device} deleted from ${room}!`);
+    goBack();
   }
 
   return (
@@ -21,9 +48,21 @@ const DeviceButton: React.FC<DeviceProps> = ({ name, status }) => {
       style={styles.deviceItem}
       onPress={() => handleNavigateToDevice(name, status)}
     >
-      <MaterialIcons name='keyboard' size={32} color='#fff' />
+      <View style={styles.roomItemHeader}>
+        <MaterialIcons name='keyboard' size={32} color='#fff' />
+        {roomName && (
+          <Ionicons
+            name='ios-trash'
+            size={24}
+            color='#F96D41'
+            style={styles.Icon}
+            onPress={() => confirmDeleteDevice(roomName, name)}
+          />
+        )}
+      </View>
 
       <Text style={styles.deviceName}>{name}</Text>
+
       <Text
         style={[
           styles.deviceStatus,
@@ -51,6 +90,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
 
+  roomItemHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
   deviceName: {
     color: '#fff',
     fontSize: 18,
@@ -62,5 +106,11 @@ const styles = StyleSheet.create({
   deviceStatus: {
     fontWeight: 'bold',
     marginTop: 5,
+  },
+
+  Icon: {
+    marginRight: 12,
+    marginTop: 2,
+    opacity: 0.6,
   },
 });

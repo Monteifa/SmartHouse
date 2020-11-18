@@ -6,6 +6,7 @@ import { findRoomIndex, findDeviceIndex } from '../utils/findUtils';
 interface DeviceRouteParams {
   name: string;
   status: boolean;
+  icon: string;
 }
 
 export default {
@@ -116,7 +117,7 @@ export default {
 
     const { id, room: roomName } = request.params;
 
-    const { name: deviceName, status }: DeviceRouteParams = request.body;
+    const { name: deviceName, status, icon }: DeviceRouteParams = request.body;
 
     const { rooms } = await housesRepository.findOneOrFail(parseInt(id));
 
@@ -128,6 +129,7 @@ export default {
       const newDevice = {
         name: deviceName,
         status,
+        icon,
       };
 
       devices ? devices.push(newDevice) : (devices = [newDevice]);

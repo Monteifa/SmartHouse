@@ -19,7 +19,7 @@ const DeviceList = () => {
       });
       setDevices(deviceList);
     });
-  }, []);
+  });
 
   return (
     <View style={styles.container}>

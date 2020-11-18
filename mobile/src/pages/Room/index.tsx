@@ -42,7 +42,12 @@ const Room = () => {
             item.name === 'add' ? (
               <AddButton />
             ) : (
-              <DeviceButton name={item.name} status={item.status} />
+              <DeviceButton
+                name={item.name}
+                status={item.status}
+                icon={item.icon}
+                roomName={name}
+              />
             )
           }
         />

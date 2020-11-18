@@ -6,4 +6,7 @@ export default class Device {
 
   @Column()
   status: boolean;
+
+  @Column()
+  icon: string;
 }
