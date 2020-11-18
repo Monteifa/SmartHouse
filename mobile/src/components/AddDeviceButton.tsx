@@ -47,6 +47,9 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
       case 'ChromeCast':
         icon = 'cast';
         break;
+      case 'Other':
+        icon = 'devices-other';
+        break;
     }
 
     return icon;
@@ -83,6 +86,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
                 <Picker.Item label='Video game' value='Video Game' />
                 <Picker.Item label='ChromeCast' value='ChromeCast' />
                 <Picker.Item label='Lights' value='Lights' />
+                <Picker.Item label='Other' value='Other' />
               </Picker>
 
               <View style={styles.switchContainer}>

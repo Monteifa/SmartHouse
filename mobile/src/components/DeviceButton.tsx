@@ -67,6 +67,8 @@ const DeviceButton: React.FC<DeviceProps> = ({
         )}
       </View>
 
+      <Text style={styles.deviceRoomName}>{roomName}</Text>
+
       <Text style={styles.deviceName}>{name}</Text>
 
       <Text
@@ -101,17 +103,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
+  deviceRoomName: {
+    color: '#fff',
+    fontSize: 14,
+    marginTop: 24,
+    lineHeight: 22,
+    paddingBottom: 3,
+  },
+
   deviceName: {
     color: '#fff',
     fontSize: 18,
     lineHeight: 22,
     fontWeight: 'bold',
-    marginTop: 40,
   },
 
   deviceStatus: {
     fontWeight: 'bold',
-    marginTop: 5,
+    marginTop: 4,
   },
 
   Icon: {

@@ -37,6 +37,9 @@ const AddButton = () => {
       case 'Kitchen':
         icon = 'kitchen';
         break;
+      case 'Other':
+        icon = 'home';
+        break;
     }
 
     return icon;
@@ -68,6 +71,7 @@ const AddButton = () => {
                 <Picker.Item label='Bedroom' value='Bedroom' />
                 <Picker.Item label='Bathroom' value='Bathroom' />
                 <Picker.Item label='Kitchen' value='Kitchen' />
+                <Picker.Item label='Other' value='Other' />
               </Picker>
 
               <View style={styles.buttonContainer}>

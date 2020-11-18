@@ -12,7 +12,7 @@ const RoomList = () => {
 
   setTimeout(() => {
     setRefresh(!refresh);
-  }, 5000);
+  }, 3000);
 
   useEffect(() => {
     api.get('/houses/1').then(({ data }) => {
