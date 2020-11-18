@@ -7,4 +7,7 @@ export default class Room {
 
   @Column((type) => Device)
   devices?: Device[];
+
+  @Column()
+  icon: string;
 }
