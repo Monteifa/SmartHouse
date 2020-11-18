@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import LineDivider from './LineDivider';
-import ActionsLogContext from '../context/ActionsLog';
 
 interface Props {
   name?: string;
@@ -10,8 +9,6 @@ interface Props {
 }
 
 const Notification: React.FC<Props> = ({ name, status }) => {
-  const [logs, setLogs] = useContext(ActionsLogContext);
-
   return (
     <View style={styles.notificationContainer}>
       <View style={styles.notificationItem}>

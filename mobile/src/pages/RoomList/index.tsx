@@ -1,49 +1,20 @@
-import React, { useState } from 'react';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
-import api from '../../services/api';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Text, View } from 'react-native';
+import AddButton from '../../components/AddButton';
+import RoomButton, { RoomProps } from '../../components/RoomButton';
 import styles from './styles';
-
-interface RoomProps {
-  name: string;
-  icon?: string;
-  add?: boolean;
-  devices?: [
-    {
-      name: string;
-      status: boolean;
-    }
-  ];
-}
+import api from '../../services/api';
 
 const RoomList = () => {
-  const { navigate } = useNavigation();
-
   let [rooms, setRooms] = useState<RoomProps[]>([]);
 
-  useFocusEffect(() => {
+  useEffect(() => {
     api.get('/houses/1').then(({ data }) => {
       rooms = data.rooms;
       rooms.push({ name: 'add', add: true });
-
       setRooms(rooms);
     });
   });
-
-  const AddButton = () => {
-    return (
-      <TouchableOpacity style={styles.roomItemAdd}>
-        <View style={styles.circle}>
-          <MaterialIcons name='add' size={32} color='#fff' />
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
-  function handleNavigateToRoom() {
-    navigate('Room');
-  }
 
   return (
     <View style={styles.container}>
@@ -55,45 +26,16 @@ const RoomList = () => {
         <FlatList<RoomProps>
           contentContainerStyle={styles.roomListContainer}
           numColumns={2}
+          showsVerticalScrollIndicator={false}
           data={rooms}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) =>
             item.add ? (
-              <TouchableOpacity style={styles.roomItemAdd}>
-                <View style={styles.circle}>
-                  <MaterialIcons name='add' size={32} color='#fff' />
-                </View>
-              </TouchableOpacity>
+              <AddButton />
             ) : (
-              <TouchableOpacity
-                style={styles.roomItem}
-                onPress={handleNavigateToRoom}
-              >
-                <View style={styles.roomItemHeader}>
-                  <MaterialIcons name='weekend' size={32} color='#fff' />
-                  <TouchableOpacity>
-                    <MaterialIcons
-                      name='more-vert'
-                      size={24}
-                      color='#F96D41'
-                      style={styles.Icon}
-                    />
-                  </TouchableOpacity>
-                </View>
-
-                <Text style={styles.roomName}>{item.name}</Text>
-                <Text style={styles.roomDesc}>
-                  {item.devices ? item.devices.length : 0}{' '}
-                  {item.devices
-                    ? item.devices.length > 1
-                      ? 'devices'
-                      : 'device '
-                    : 'device'}
-                </Text>
-              </TouchableOpacity>
+              <RoomButton name={item.name} devices={item.devices} />
             )
           }
-          showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
