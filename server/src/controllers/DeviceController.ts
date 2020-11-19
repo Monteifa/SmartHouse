@@ -180,8 +180,7 @@ export default {
 
         return response.json({
           message: 'Device Removed',
-          room: roomName,
-          devices: updatedHouse.rooms[roomIndex],
+          room: updatedHouse.rooms[roomIndex],
         });
       }
 
