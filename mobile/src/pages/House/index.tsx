@@ -96,7 +96,7 @@ const House = () => {
             style={styles.recentContainer}
             onPress={() => {
               Linking.openURL(
-                'https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz'
+                'https://open.spotify.com/album/7pgs38iLfEqUtwgCRgvbND'
               );
             }}
           >
@@ -106,28 +106,56 @@ const House = () => {
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj'
+              );
+            }}
+          >
             <Image
               source={week}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/2qwN15acAl3sm3Idce5vK9'
+              );
+            }}
+          >
             <Image
               source={ff}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/1zCNrbPpz5OLSr6mSpPdKm'
+              );
+            }}
+          >
             <Image
               source={ff2}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/3bTNxJYk2bwdWBMtrjBxb0'
+              );
+            }}
+          >
             <Image
               source={acdc}
               resizeMode='cover'
@@ -136,72 +164,6 @@ const House = () => {
           </TouchableOpacity>
         </ScrollView>
       </View>
-
-      {/* <Text style={styles.title}>Meus cômodos</Text>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='weekend'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Living Room</Text>
-        <MaterialIcons
-          name='keyboard-arrow-right'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <Ionicons
-          name='ios-bed-outline'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Bedroom</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='kitchen'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Kitchen</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='bathtub'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Living Room</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>*/}
     </ScrollView>
   );
 };
