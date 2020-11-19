@@ -37,7 +37,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
         break;
 
       case 'Lights':
-        icon = 'emoji-objects';
+        icon = 'lightbulb-outline';
         break;
 
       case 'Video Game':
@@ -46,6 +46,9 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
 
       case 'ChromeCast':
         icon = 'cast';
+        break;
+      case 'Other':
+        icon = 'devices-other';
         break;
     }
 
@@ -83,6 +86,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
                 <Picker.Item label='Video game' value='Video Game' />
                 <Picker.Item label='ChromeCast' value='ChromeCast' />
                 <Picker.Item label='Lights' value='Lights' />
+                <Picker.Item label='Other' value='Other' />
               </Picker>
 
               <View style={styles.switchContainer}>
@@ -93,6 +97,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
                   trackColor={{ false: '#ccc', true: '#39CC83' }}
                   value={status}
                   onValueChange={setStatus}
+                  style={{ width: 200 }}
                 />
               </View>
 
@@ -180,13 +185,14 @@ const styles = StyleSheet.create({
   },
 
   switchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     marginTop: 16,
+    flexDirection: 'row',
   },
 
-  switchText: {},
+  switchText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 
   buttonContainer: {
     flexDirection: 'row',

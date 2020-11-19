@@ -20,13 +20,19 @@ const Room = () => {
 
   const [devices, setDevices] = useState<DeviceProps[]>([]);
 
+  const [refresh, setRefresh] = useState(false);
+
+  setTimeout(() => {
+    setRefresh(!refresh);
+  }, 3000);
+
   useEffect(() => {
     api.get(`/houses/1/rooms/${name}/devices`).then(({ data }) => {
       let deviceList = [...data] as DeviceProps[];
       deviceList.push({ name: 'add', status: false });
       setDevices(deviceList);
     });
-  }, [devices]);
+  }, [refresh]);
 
   return (
     <View style={styles.container}>

@@ -8,18 +8,25 @@ import styles from './styles';
 const DeviceList = () => {
   const [devices, setDevices] = useState<DeviceProps[]>([]);
 
+  const [refresh, setRefresh] = useState(false);
+
+  setTimeout(() => {
+    setRefresh(!refresh);
+  }, 5000);
+
   useEffect(() => {
     api.get('/houses/1').then(({ data }) => {
       let deviceList = [] as DeviceProps[];
       const rooms: RoomProps[] = data.rooms;
       rooms.map((room: RoomProps) => {
         room.devices?.map((device) => {
+          device.roomName = room.name;
           deviceList.push(device);
         });
       });
       setDevices(deviceList);
     });
-  });
+  }, [refresh]);
 
   return (
     <View style={styles.container}>
@@ -40,6 +47,7 @@ const DeviceList = () => {
               name={item.name}
               status={item.status}
               icon={item.icon}
+              roomName={item.roomName}
             />
           )}
         />

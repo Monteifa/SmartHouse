@@ -8,13 +8,19 @@ import api from '../../services/api';
 const RoomList = () => {
   let [rooms, setRooms] = useState<RoomProps[]>([]);
 
+  const [refresh, setRefresh] = useState(false);
+
+  setTimeout(() => {
+    setRefresh(!refresh);
+  }, 3000);
+
   useEffect(() => {
     api.get('/houses/1').then(({ data }) => {
       rooms = data.rooms;
       rooms.push({ name: 'add', add: true, icon: '' });
       setRooms(rooms);
     });
-  }, [rooms]);
+  }, [refresh]);
 
   return (
     <View style={styles.container}>
