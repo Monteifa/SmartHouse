@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, View, Linking } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -92,109 +92,78 @@ const House = () => {
       </View>
       <View style={styles.recentScroller}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/7pgs38iLfEqUtwgCRgvbND'
+              );
+            }}
+          >
             <Image
               source={lp}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj'
+              );
+            }}
+          >
             <Image
               source={week}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/2qwN15acAl3sm3Idce5vK9'
+              );
+            }}
+          >
             <Image
               source={ff}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/1zCNrbPpz5OLSr6mSpPdKm'
+              );
+            }}
+          >
             <Image
               source={ff2}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/album/3bTNxJYk2bwdWBMtrjBxb0'
+              );
+            }}
+          >
             <Image
               source={acdc}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
-
-      {/* <Text style={styles.title}>Meus cômodos</Text>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='weekend'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Living Room</Text>
-        <MaterialIcons
-          name='keyboard-arrow-right'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <Ionicons
-          name='ios-bed-outline'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Bedroom</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='kitchen'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Kitchen</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>
-
-      <RectButton style={styles.roomItem}>
-        <MaterialIcons
-          name='bathtub'
-          size={24}
-          color='#fff'
-          style={styles.icon}
-        />
-        <Text style={styles.roomName}>Living Room</Text>
-        <MaterialIcons
-          name='navigate-next'
-          size={32}
-          color='#fff'
-          style={styles.iconNext}
-        />
-      </RectButton>*/}
     </ScrollView>
   );
 };

@@ -73,7 +73,7 @@ const AddButton: React.FC<Props> = ({ roomName }) => {
         <BlurView style={styles.blur} tint='dark' intensity={100}>
           <View style={styles.modalContainer}>
             <View style={styles.modalView}>
-              <Text style={styles.selectRoomText}>Select a room</Text>
+              <Text style={styles.selectRoomText}>Select a device</Text>
               <Picker
                 selectedValue={selectedDevice}
                 style={styles.picker}

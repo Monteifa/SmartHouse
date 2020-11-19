@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 24,
     marginLeft: 8,
+    paddingBottom: 40,
   },
 
   recentContainer: {

@@ -52,6 +52,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 40,
   },
+
+  textOn: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+  textOff: {
+    color: 'black',
+  },
 });
 
 export default styles;

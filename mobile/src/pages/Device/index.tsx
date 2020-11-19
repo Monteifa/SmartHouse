@@ -40,6 +40,7 @@ const Device = () => {
               onPress={handleDeviceStatusChange}
             >
               <MaterialIcons name='power-settings-new' size={64} color='#fff' />
+              <Text style={styles.textOn}>On</Text>
             </TouchableOpacity>
           </View>
         ) : (
@@ -54,6 +55,7 @@ const Device = () => {
                 size={48}
                 color='black'
               />
+              <Text style={styles.textOff}>Off</Text>
             </TouchableOpacity>
           </View>
         )}
