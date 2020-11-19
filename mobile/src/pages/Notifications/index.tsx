@@ -10,7 +10,7 @@ const Notifications = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Notifications</Text>
+        <Text style={styles.headerText}>Notifications (Beta)</Text>
       </View>
 
       {/* Fix */}
