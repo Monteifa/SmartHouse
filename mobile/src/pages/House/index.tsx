@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, View, Linking } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -92,41 +92,48 @@ const House = () => {
       </View>
       <View style={styles.recentScroller}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.recentContainer}>
+          <TouchableOpacity
+            style={styles.recentContainer}
+            onPress={() => {
+              Linking.openURL(
+                'https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz'
+              );
+            }}
+          >
             <Image
               source={lp}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.recentContainer}>
             <Image
               source={week}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.recentContainer}>
             <Image
               source={ff}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.recentContainer}>
             <Image
               source={ff2}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
-          <View style={styles.recentContainer}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.recentContainer}>
             <Image
               source={acdc}
               resizeMode='cover'
               style={{ width: '100%', height: '100%', borderRadius: 8 }}
             />
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
 

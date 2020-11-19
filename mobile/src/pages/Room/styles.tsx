@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   deviceListContainer: {
     alignItems: 'center',
     padding: 48,
+    paddingBottom: 100,
   },
 });
 
