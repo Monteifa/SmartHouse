@@ -32,6 +32,12 @@ export default {
 
     house._id = 1;
     house.name = 'Casa Cinside';
+    house.rooms = [
+      {
+        name: 'Living Room',
+        icon: 'weekend',
+      },
+    ];
 
     await housesRepository.save(house);
 
