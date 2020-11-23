@@ -1,13 +1,15 @@
 import { useRoute } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { DeviceProps } from '../../components/DeviceButton';
 import { MaterialIcons } from '@expo/vector-icons';
+import api from '../../services/api';
 
 import Header from '../../components/Header';
 
+import NotificationContext from '../../contexts/notifcations';
+
 import styles from './styles';
-import api from '../../services/api';
 
 interface DeviceRouteParams {
   params: DeviceProps;
@@ -18,11 +20,13 @@ const Device = () => {
   const { params } = route as DeviceRouteParams;
   const { name, status, roomName } = params;
 
+  const { addNotification } = useContext(NotificationContext);
+
   const [deviceStatus, setDeviceStatus] = useState(status);
 
   async function handleDeviceStatusChange() {
     setDeviceStatus(!deviceStatus);
-
+    addNotification(name, !deviceStatus);
     await api.put(`houses/1/rooms/${roomName}/devices/${name}`, {
       status: !deviceStatus,
     });

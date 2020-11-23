@@ -1,14 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+
 import LineDivider from './LineDivider';
+import { NotificationProps } from '../contexts/notifcations';
 
-interface Props {
-  name?: string;
-  status?: boolean;
-}
-
-const Notification: React.FC<Props> = ({ name, status }) => {
+const Notification: React.FC<NotificationProps> = ({ name, status }) => {
   return (
     <View style={styles.notificationContainer}>
       <View style={styles.notificationItem}>

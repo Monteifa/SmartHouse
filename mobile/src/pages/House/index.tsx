@@ -29,7 +29,7 @@ const House = () => {
       <View style={styles.header}>
         <View style={styles.headerContainer}>
           <Text style={styles.welcomeText}>Bem-vindo</Text>
-          <Text style={styles.usernameText}>Fabio Monteiro</Text>
+          <Text style={styles.usernameText}>Casa Cinside</Text>
         </View>
 
         <TouchableOpacity>
